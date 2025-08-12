@@ -1,0 +1,8 @@
+meeting_dates/
+├── build/                # CMake build output directory (ignored by git)
+├── external/             # External libraries like xlnt go here
+│   └── xlnt/             # xlnt source code cloned here
+├── CMakeLists.txt        # Your main CMake project file
+├── main.cpp              # Your app source code
+└── README.md             # Optional: project info
+

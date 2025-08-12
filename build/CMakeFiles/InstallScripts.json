@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/data/data/com.termux/files/home/projects/meeting_dates/build/cmake_install.cmake",
+		"/data/data/com.termux/files/home/projects/meeting_dates/build/external/xlnt/cmake_install.cmake",
+		"/data/data/com.termux/files/home/projects/meeting_dates/build/external/xlnt/source/cmake_install.cmake",
+		"/data/data/com.termux/files/home/projects/meeting_dates/build/external/xlnt/source/third-party/libstudxml/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
