@@ -64,6 +64,7 @@ CMakeFiles/meeting_logger.dir/src/main.cpp.o: /data/data/com.termux/files/home/p
   /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/worksheet/worksheet.hpp \
   /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/xlnt.hpp \
   /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/xlnt_config.hpp \
+  /data/data/com.termux/files/home/projects/meeting_dates/src/excel_dates.hpp \
   /data/data/com.termux/files/usr/include/aarch64-linux-android/asm/bitsperlong.h \
   /data/data/com.termux/files/usr/include/aarch64-linux-android/asm/errno.h \
   /data/data/com.termux/files/usr/include/aarch64-linux-android/asm/fcntl.h \
@@ -2386,18 +2387,6 @@ external/xlnt/source/libxlnt.so.1.5.0:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/pstl_generate.h:
 
-/data/data/com.termux/files/usr/include/c++/v1/__type_traits/is_pointer.h:
-
-/data/data/com.termux/files/usr/include/c++/v1/__memory/uses_allocator_construction.h:
-
-/data/data/com.termux/files/usr/include/c++/v1/__availability:
-
-/data/data/com.termux/files/usr/include/asm-generic/signal.h:
-
-/data/data/com.termux/files/usr/include/c++/v1/__algorithm/lexicographical_compare_three_way.h:
-
-/data/data/com.termux/files/usr/include/c++/v1/__algorithm/pstl_frontend_dispatch.h:
-
 /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/styles/alignment.hpp:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/pstl_backends/cpu_backends/thread.h:
@@ -2441,6 +2430,10 @@ external/xlnt/source/libxlnt.so.1.5.0:
 /data/data/com.termux/files/usr/include/c++/v1/__type_traits/add_pointer.h:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/sample.h:
+
+/data/data/com.termux/files/usr/include/c++/v1/__algorithm/lexicographical_compare_three_way.h:
+
+/data/data/com.termux/files/usr/include/asm-generic/signal.h:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/pstl_backends/cpu_backends/fill.h:
 
@@ -2502,6 +2495,12 @@ external/xlnt/source/libxlnt.so.1.5.0:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/minmax.h:
 
+/data/data/com.termux/files/usr/include/c++/v1/__type_traits/is_pointer.h:
+
+/data/data/com.termux/files/usr/include/c++/v1/__availability:
+
+/data/data/com.termux/files/usr/include/c++/v1/__memory/uses_allocator_construction.h:
+
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/ranges_is_heap_until.h:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/max_element.h:
@@ -2511,6 +2510,8 @@ external/xlnt/source/libxlnt.so.1.5.0:
 /data/data/com.termux/files/usr/include/c++/v1/stddef.h:
 
 /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/workbook/worksheet_iterator.hpp:
+
+/data/data/com.termux/files/usr/include/c++/v1/__algorithm/pstl_frontend_dispatch.h:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/is_sorted_until.h:
 
@@ -2712,12 +2713,6 @@ external/xlnt/source/libxlnt.so.1.5.0:
 
 /data/data/com.termux/files/usr/include/alloca.h:
 
-/data/data/com.termux/files/usr/include/c++/v1/__algorithm/ranges_find.h:
-
-/data/data/com.termux/files/usr/include/c++/v1/__iterator/mergeable.h:
-
-/data/data/com.termux/files/usr/include/bits/seek_constants.h:
-
 /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/cell/comment.hpp:
 
 /data/data/com.termux/files/usr/lib/clang/20/include/__stdarg_va_arg.h:
@@ -2900,6 +2895,12 @@ external/xlnt/source/libxlnt.so.1.5.0:
 
 /data/data/com.termux/files/usr/include/android/versioning.h:
 
+/data/data/com.termux/files/usr/include/c++/v1/__iterator/mergeable.h:
+
+/data/data/com.termux/files/usr/include/bits/seek_constants.h:
+
+/data/data/com.termux/files/usr/include/c++/v1/__algorithm/ranges_find.h:
+
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/ranges_unique.h:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/ranges_fill_n.h:
@@ -2913,3 +2914,5 @@ external/xlnt/source/libxlnt.so.1.5.0:
 /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/packaging/uri.hpp:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/max.h:
+
+/data/data/com.termux/files/home/projects/meeting_dates/src/excel_dates.hpp:
