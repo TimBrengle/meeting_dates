@@ -64,7 +64,7 @@ CMakeFiles/meeting_logger.dir/src/main.cpp.o: /data/data/com.termux/files/home/p
   /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/worksheet/worksheet.hpp \
   /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/xlnt.hpp \
   /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/xlnt_config.hpp \
-  /data/data/com.termux/files/home/projects/meeting_dates/src/excel_dates.hpp \
+  /data/data/com.termux/files/home/projects/meeting_dates/src/excel_date_utils.hpp \
   /data/data/com.termux/files/usr/include/aarch64-linux-android/asm/bitsperlong.h \
   /data/data/com.termux/files/usr/include/aarch64-linux-android/asm/errno.h \
   /data/data/com.termux/files/usr/include/aarch64-linux-android/asm/fcntl.h \
@@ -2495,6 +2495,8 @@ external/xlnt/source/libxlnt.so.1.5.0:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/minmax.h:
 
+/data/data/com.termux/files/home/projects/meeting_dates/src/excel_date_utils.hpp:
+
 /data/data/com.termux/files/usr/include/c++/v1/__type_traits/is_pointer.h:
 
 /data/data/com.termux/files/usr/include/c++/v1/__availability:
@@ -2914,5 +2916,3 @@ external/xlnt/source/libxlnt.so.1.5.0:
 /data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/include/xlnt/packaging/uri.hpp:
 
 /data/data/com.termux/files/usr/include/c++/v1/__algorithm/max.h:
-
-/data/data/com.termux/files/home/projects/meeting_dates/src/excel_dates.hpp:

@@ -10,7 +10,7 @@ add_executable(meeting_logger
     src/main.cpp
 )
 
-# Include itlib headers (adjust path if needed)
+# Include itlib headers
 target_include_directories(meeting_logger PRIVATE
     ${CMAKE_SOURCE_DIR}/external/itlib/include
 )
