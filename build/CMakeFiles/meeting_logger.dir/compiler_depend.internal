@@ -963,16 +963,3 @@ CMakeFiles/meeting_logger.dir/src/main.cpp.o
  /data/data/com.termux/files/usr/lib/clang/20/include/stddef.h
  /data/data/com.termux/files/usr/lib/clang/20/include/stdint.h
 
-meeting_logger
- /data/data/com.termux/files/usr/lib/clang/20/lib/linux/libclang_rt.builtins-aarch64-android.a
- /data/data/com.termux/files/usr/lib/crtbegin_dynamic.o
- /data/data/com.termux/files/usr/lib/crtend_android.o
- /data/data/com.termux/files/usr/lib/libc++_shared.so
- /data/data/com.termux/files/usr/lib/libunwind.a
- /system/lib64/libc.so
- /system/lib64/libdl.so
- /system/lib64/liblog.so
- /system/lib64/libm.so
- /data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles/meeting_logger.dir/src/main.cpp.o
- /data/data/com.termux/files/home/projects/meeting_dates/build/external/xlnt/source/libxlnt.so.1.5.0
-

@@ -4,7 +4,7 @@
 # compile CXX with /data/data/com.termux/files/usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/data/data/com.termux/files/home/projects/meeting_dates/external/itlib/include -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../include
+CXX_INCLUDES = -I/data/data/com.termux/files/home/projects/meeting_dates/src -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../include
 
-CXX_FLAGS = -O2 -g -DNDEBUG
+CXX_FLAGS = -O2 -g -DNDEBUG -std=gnu++17
 

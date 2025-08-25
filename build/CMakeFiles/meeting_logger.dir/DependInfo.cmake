@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/data/data/com.termux/files/home/projects/meeting_dates/src/excel_utilities.cpp" "CMakeFiles/meeting_logger.dir/src/excel_utilities.cpp.o" "gcc" "CMakeFiles/meeting_logger.dir/src/excel_utilities.cpp.o.d"
   "/data/data/com.termux/files/home/projects/meeting_dates/src/main.cpp" "CMakeFiles/meeting_logger.dir/src/main.cpp.o" "gcc" "CMakeFiles/meeting_logger.dir/src/main.cpp.o.d"
   "" "meeting_logger" "gcc" "CMakeFiles/meeting_logger.dir/link.d"
   )

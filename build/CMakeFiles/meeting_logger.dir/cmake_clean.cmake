@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/meeting_logger.dir/link.d"
+  "CMakeFiles/meeting_logger.dir/src/excel_utilities.cpp.o"
+  "CMakeFiles/meeting_logger.dir/src/excel_utilities.cpp.o.d"
   "CMakeFiles/meeting_logger.dir/src/main.cpp.o"
   "CMakeFiles/meeting_logger.dir/src/main.cpp.o.d"
   "meeting_logger"

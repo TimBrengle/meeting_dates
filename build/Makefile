@@ -213,6 +213,30 @@ libstudxml/fast:
 	$(MAKE) $(MAKESILENT) -f external/xlnt/source/third-party/libstudxml/CMakeFiles/libstudxml.dir/build.make external/xlnt/source/third-party/libstudxml/CMakeFiles/libstudxml.dir/build
 .PHONY : libstudxml/fast
 
+src/excel_utilities.o: src/excel_utilities.cpp.o
+.PHONY : src/excel_utilities.o
+
+# target to build an object file
+src/excel_utilities.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/meeting_logger.dir/build.make CMakeFiles/meeting_logger.dir/src/excel_utilities.cpp.o
+.PHONY : src/excel_utilities.cpp.o
+
+src/excel_utilities.i: src/excel_utilities.cpp.i
+.PHONY : src/excel_utilities.i
+
+# target to preprocess a source file
+src/excel_utilities.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/meeting_logger.dir/build.make CMakeFiles/meeting_logger.dir/src/excel_utilities.cpp.i
+.PHONY : src/excel_utilities.cpp.i
+
+src/excel_utilities.s: src/excel_utilities.cpp.s
+.PHONY : src/excel_utilities.s
+
+# target to generate assembly for a file
+src/excel_utilities.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/meeting_logger.dir/build.make CMakeFiles/meeting_logger.dir/src/excel_utilities.cpp.s
+.PHONY : src/excel_utilities.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -253,6 +277,9 @@ help:
 	@echo "... libstudxml"
 	@echo "... meeting_logger"
 	@echo "... xlnt"
+	@echo "... src/excel_utilities.o"
+	@echo "... src/excel_utilities.i"
+	@echo "... src/excel_utilities.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

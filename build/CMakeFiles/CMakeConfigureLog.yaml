@@ -1611,3 +1611,225 @@ events:
       Running the C compiler's linker: "/data/data/com.termux/files/usr/bin/ld.lld" "-v"
       LLD 20.1.8 (compatible with GNU linkers)
 ...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "CMakeLists.txt:48 (find_library)"
+    mode: "library"
+    variable: "XLNT_LIB"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "xlnt"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/build/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/"
+      - "/data/data/com.termux/files/home/projects/"
+      - "/data/data/com.termux/files/usr/lib/"
+      - "/data/data/com.termux/files/usr/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/build/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/"
+      - "/data/data/com.termux/files/home/projects/"
+      - "/data/data/com.termux/files/usr/lib/"
+      - "/data/data/com.termux/files/usr/"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin"
+        - "/data/data/com.termux/files/usr/bin"
+        - "."
+        - ".."
+        - "/data/data/com.termux/files/home/projects"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/data/data/com.termux/files/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "CMakeLists.txt:49 (find_library)"
+    mode: "library"
+    variable: "ITLIB_LIB"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "itlib"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/build/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/"
+      - "/data/data/com.termux/files/home/projects/"
+      - "/data/data/com.termux/files/usr/lib/"
+      - "/data/data/com.termux/files/usr/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/external/itlib/lib/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/build/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/"
+      - "/data/data/com.termux/files/home/projects/"
+      - "/data/data/com.termux/files/usr/lib/"
+      - "/data/data/com.termux/files/usr/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/external/itlib/lib/"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin"
+        - "/data/data/com.termux/files/usr/bin"
+        - "."
+        - ".."
+        - "/data/data/com.termux/files/home/projects"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/data/data/com.termux/files/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "CMakeLists.txt:50 (find_library)"
+    mode: "library"
+    variable: "MINIZIP_LIB"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "minizip"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/build/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/"
+      - "/data/data/com.termux/files/home/projects/"
+      - "/data/data/com.termux/files/usr/lib/"
+      - "/data/data/com.termux/files/usr/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/build/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/"
+      - "/data/data/com.termux/files/home/projects/"
+      - "/data/data/com.termux/files/usr/lib/"
+      - "/data/data/com.termux/files/usr/"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin"
+        - "/data/data/com.termux/files/usr/bin"
+        - "."
+        - ".."
+        - "/data/data/com.termux/files/home/projects"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/data/data/com.termux/files/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "CMakeLists.txt:51 (find_library)"
+    mode: "library"
+    variable: "ZLIB_LIB"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "zlib"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/build/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/"
+      - "/data/data/com.termux/files/home/projects/"
+      - "/data/data/com.termux/files/usr/lib/"
+      - "/data/data/com.termux/files/usr/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/build/"
+      - "/data/data/com.termux/files/home/projects/meeting_dates/"
+      - "/data/data/com.termux/files/home/projects/"
+      - "/data/data/com.termux/files/usr/lib/"
+      - "/data/data/com.termux/files/usr/"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/ndk/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin"
+        - "/data/data/com.termux/files/usr/bin"
+        - "."
+        - ".."
+        - "/data/data/com.termux/files/home/projects"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/data/data/com.termux/files/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+...

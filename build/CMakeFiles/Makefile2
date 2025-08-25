@@ -149,12 +149,12 @@ external/xlnt/source/third-party/libstudxml/clean: external/xlnt/source/third-pa
 CMakeFiles/meeting_logger.dir/all: external/xlnt/source/CMakeFiles/xlnt.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/meeting_logger.dir/build.make CMakeFiles/meeting_logger.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/meeting_logger.dir/build.make CMakeFiles/meeting_logger.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles --progress-num=10,11 "Built target meeting_logger"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles --progress-num=10,11,12 "Built target meeting_logger"
 .PHONY : CMakeFiles/meeting_logger.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/meeting_logger.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles 80
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/meeting_logger.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles 0
 .PHONY : CMakeFiles/meeting_logger.dir/rule
@@ -166,7 +166,7 @@ meeting_logger: CMakeFiles/meeting_logger.dir/rule
 # codegen rule for target.
 CMakeFiles/meeting_logger.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/meeting_logger.dir/build.make CMakeFiles/meeting_logger.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles --progress-num=10,11 "Finished codegen for target meeting_logger"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles --progress-num=10,11,12 "Finished codegen for target meeting_logger"
 .PHONY : CMakeFiles/meeting_logger.dir/codegen
 
 # clean rule for target.
@@ -181,7 +181,7 @@ CMakeFiles/meeting_logger.dir/clean:
 external/xlnt/source/CMakeFiles/xlnt.dir/all: external/xlnt/source/third-party/libstudxml/CMakeFiles/libstudxml.dir/all
 	$(MAKE) $(MAKESILENT) -f external/xlnt/source/CMakeFiles/xlnt.dir/build.make external/xlnt/source/CMakeFiles/xlnt.dir/depend
 	$(MAKE) $(MAKESILENT) -f external/xlnt/source/CMakeFiles/xlnt.dir/build.make external/xlnt/source/CMakeFiles/xlnt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles --progress-num=12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80 "Built target xlnt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles --progress-num=13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81 "Built target xlnt"
 .PHONY : external/xlnt/source/CMakeFiles/xlnt.dir/all
 
 # Build rule for subdir invocation for target.
@@ -198,7 +198,7 @@ xlnt: external/xlnt/source/CMakeFiles/xlnt.dir/rule
 # codegen rule for target.
 external/xlnt/source/CMakeFiles/xlnt.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f external/xlnt/source/CMakeFiles/xlnt.dir/build.make external/xlnt/source/CMakeFiles/xlnt.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles --progress-num=12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80 "Finished codegen for target xlnt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/data/data/com.termux/files/home/projects/meeting_dates/build/CMakeFiles --progress-num=13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81 "Finished codegen for target xlnt"
 .PHONY : external/xlnt/source/CMakeFiles/xlnt.dir/codegen
 
 # clean rule for target.
