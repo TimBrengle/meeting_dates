@@ -18,7 +18,7 @@
 BENCHMARKS:BOOL=OFF
 
 //Build dependencies from source
-BUILD_DEPS_FROM_SOURCE:BOOL=ON
+BUILD_DEPS_FROM_SOURCE:BOOL=OFF
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/data/data/com.termux/files/usr/bin/llvm-addr2line
@@ -301,11 +301,17 @@ COVERAGE:BOOL=OFF
 //itlib: build tests
 ITLIB_BUILD_TESTS:BOOL=OFF
 
-//Path to a library.
-ITLIB_LIB:FILEPATH=ITLIB_LIB-NOTFOUND
+//No help, variable specified on the command line.
+ITLIB_INCLUDE_DIR:UNINITIALIZED=/data/data/com.termux/files/usr/include
 
-//Path to a library.
-MINIZIP_LIB:FILEPATH=MINIZIP_LIB-NOTFOUND
+//No help, variable specified on the command line.
+ITLIB_LIB:UNINITIALIZED=/data/data/com.termux/files/usr/lib/libitlib.a
+
+//No help, variable specified on the command line.
+MINIZIP_INCLUDE_DIR:UNINITIALIZED=/data/data/com.termux/files/usr/include
+
+//No help, variable specified on the command line.
+MINIZIP_LIB:UNINITIALIZED=/data/data/com.termux/files/usr/lib/libminizip.so
 
 //Set to ON to build Arrow conversion functions (in ./python)
 PYTHON:BOOL=OFF
@@ -329,11 +335,14 @@ XLNT_CMAKE_CFG_DEST_DIR:PATH=lib/cmake/xlnt
 //c++ language features to compile with
 XLNT_CXX_LANG:STRING=14
 
+//No help, variable specified on the command line.
+XLNT_INCLUDE_DIR:UNINITIALIZED=/data/data/com.termux/files/usr/include
+
 //Default location to install include files
 XLNT_INC_DEST_DIR:PATH=include
 
-//Path to a library.
-XLNT_LIB:FILEPATH=XLNT_LIB-NOTFOUND
+//No help, variable specified on the command line.
+XLNT_LIB:UNINITIALIZED=/data/data/com.termux/files/usr/lib/libxlnt.a
 
 //Default location to install library files
 XLNT_LIB_DEST_DIR:PATH=lib
@@ -341,8 +350,17 @@ XLNT_LIB_DEST_DIR:PATH=lib
 //Default location to install runtime files
 XLNT_MAN_DEST_DIR:PATH=share/man
 
+//Path to a file.
+ZLIB_INCLUDE_DIR:PATH=/data/data/com.termux/files/usr/include
+
+//No help, variable specified on the command line.
+ZLIB_LIB:UNINITIALIZED=/data/data/com.termux/files/usr/lib/libz.so
+
 //Path to a library.
-ZLIB_LIB:FILEPATH=ZLIB_LIB-NOTFOUND
+ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+ZLIB_LIBRARY_RELEASE:FILEPATH=/data/data/com.termux/files/usr/lib/libz.so
 
 //Value Computed by CMake
 itlib_BINARY_DIR:STATIC=/data/data/com.termux/files/home/projects/meeting_dates/build/external/itlib
@@ -379,6 +397,9 @@ meeting_logger_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 meeting_logger_SOURCE_DIR:STATIC=/data/data/com.termux/files/home/projects/meeting_dates
+
+//The directory containing a CMake configuration file for minizip.
+minizip_DIR:PATH=minizip_DIR-NOTFOUND
 
 //Value Computed by CMake
 xlnt_BINARY_DIR:STATIC=/data/data/com.termux/files/home/projects/meeting_dates/build/external/xlnt/source
@@ -541,7 +562,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -586,10 +607,18 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/data/data/com.termux/files/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding ZLIB
+FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[/data/data/com.termux/files/usr/lib/libz.so][/data/data/com.termux/files/usr/include][ ][v1.3.1()]
 //ADVANCED property for variable: ITLIB_BUILD_TESTS
 ITLIB_BUILD_TESTS-ADVANCED:INTERNAL=1
 //STRINGS property for variable: XLNT_CXX_LANG
 XLNT_CXX_LANG-STRINGS:INTERNAL=11;14;17
+//ADVANCED property for variable: ZLIB_INCLUDE_DIR
+ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_DEBUG
+ZLIB_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_RELEASE
+ZLIB_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
 

@@ -1,0 +1,43 @@
+#!/bin/bash
+# build_meeting_dates.sh
+# Configures and builds meeting_dates with
+# optional source deps
+
+BUILD_TYPE=${1:-RelWithDebInfo}
+BUILD_DEPS_FROM_SOURCE=${2:-OFF}
+
+echo "=== Building meeting_dates ==="
+echo "Build type: $BUILD_TYPE"
+echo "Build deps from source: $BUILD_DEPS_FROM_SOURCE"
+
+mkdir -p build
+cd build || exit 1
+
+CMAKE_ARGS="-DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DEPS_FROM_SOURCE=$BUILD_DEPS_FROM_SOURCE"
+
+if [ "$BUILD_DEPS_FROM_SOURCE" = "OFF" ]; then
+    echo "Using system-installed dependencies..."
+    # System paths (adjust if Termux paths differ)
+    CMAKE_ARGS+=" -DZLIB_LIB=/data/data/com.termux/files/usr/lib/libz.so"
+    CMAKE_ARGS+=" -DZLIB_INCLUDE_DIR=/data/data/com.termux/files/usr/include"
+    CMAKE_ARGS+=" -DMINIZIP_LIB=/data/data/com.termux/files/usr/lib/libminizip.so"
+    CMAKE_ARGS+=" -DMINIZIP_INCLUDE_DIR=/data/data/com.termux/files/usr/include"
+    CMAKE_ARGS+=" -DITLIB_LIB=/data/data/com.termux/files/usr/lib/libitlib.a"
+    CMAKE_ARGS+=" -DITLIB_INCLUDE_DIR=/data/data/com.termux/files/usr/include"
+    CMAKE_ARGS+=" -DXLNT_LIB=/data/data/com.termux/files/usr/lib/libxlnt.a"
+    CMAKE_ARGS+=" -DXLNT_INCLUDE_DIR=/data/data/com.termux/files/usr/include"
+else
+    echo "Building dependencies from source if present..."
+    # Warn if external sources are missing
+    for dep in zlib minizip xlnt; do
+        if [ ! -d "../external/$dep" ]; then
+            echo "Warning: ../external/$dep missing. Will skip building from source."
+        fi
+    done
+fi
+
+# Configure
+cmake .. $CMAKE_ARGS
+
+# Build
+make -j$(nproc)

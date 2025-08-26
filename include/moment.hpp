@@ -1,31 +1,130 @@
 #pragma once
 
-#include <ctime>
 #include <string>
-#include <iomanip>
-#include <sstream>
+#include <ctime>
+#include <stdexcept>
+#include <xlnt/xlnt.hpp>
+#include "excel_utilities.hpp"
 
-class moment
+namespace mtgs
+{
+
+const std::string DateFmt == "%m/%d/%Y %H:%M";
+
+class Moment
 {
 public:
-    // Default constructor: now
-    moment();
+    std::time_t point;
+    std::tm parsed;
+    std::string date_str;
+    std::string calref;
 
-    // Construct from time_t
-    explicit moment(const std::time_t& tp);
+    Moment()
+    : point(0)
+    {}
 
-    // Construct from std::tm
-    explicit moment(const std::tm& tm);
+    explicit Moment(std::time_t t)
+    : point(t)
+    {}
 
-    // Return as std::tm
-    std::tm to_tm() const;
+    explicit Moment(const std::string &str)
+    {
+        struct tm tm{};
+        // Format of time in Calendar cell
+        if (strptime(str.c_str(), DateFmt, &tm))
+        {
+            point = mktime(&tm);
+        }
+        else
+        {
+            throw std::runtime_error(
+		"Unsupported date string format: "
+		+ str);
+        }
+    }
 
-    // Return as time_t
-    std::time_t to_time_t() const;
+    explicit Moment(double excel_serial)
+    {
+        // Excel's serial date handling
+	// (1900-based, includes leap year bug)
+	
+	// 1899-12-31 UTC
+        const time_t excel_epoch = -2209161600;
+        point = excel_epoch
+	    + static_cast<time_t>(
+		excel_serial * 86400);
+    }
 
-    // Return formatted string (default: "%Y-%m-%d %H:%M:%S")
-    std::string to_string(const std::string& fmt = "%Y-%m-%d %H:%M:%S") const;
+    time_t value() const
+    {
+	 return point;
+    }
+
+    std::string to_string() const
+    {
+        char buf[32];
+        struct tm tm{};
+        localtime_r(&point, &tm);
+        strftime(buf, sizeof(buf), DateFmt, &tm);
+        return buf;
+    }
+
+    // --- static helpers ---
+
+    static Moment from_cell(
+		const xlnt::cell &cell)
+    {
+        switch (cell.data_type())
+	{
+	    case xlnt::cell_type::date:
+            	auto dt =
+		    cell.value<xlnt::datetime>();
+            	std::tm tm{};
+            	tm.tm_year = dt.year - 1900;
+            	tm.tm_mon = dt.month - 1;
+            	tm.tm_mday = dt.day;
+            	tm.tm_hour = dt.hour;
+            	tm.tm_min = dt.minute;
+            	tm.tm_sec = dt.second;
+            	time_t t = mktime(&tm);
+            	return Moment(t);
+	    case xlnt::cell_type::number:
+                return Moment(
+		    cell.value<double>());
+	    case xlnt::cell_type::string:
+                return Moment(
+		    cell.value<std::string>());
+	    default:
+                throw std::runtime_error("Unsupported cell type for Moment");
+        }
+    }
 
 private:
-    std::time_t timepoint_;
+    time_t point;
 };
+
+static const std::string month_abbr[] =
+{
+    // Excel uses January = 0
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+};
+
+// Map date -> calref
+inline std::string to_calref(time_t t)
+{
+    // Convert to calendar date
+    struct tm tm{};
+    localtime_r(&t, &tm);
+
+    // Map day-of-month to Excel row reference
+    std::string row = itos(tm.tm_mday) + 1;
+
+    // Map month to Excel column
+    char col = 'B' + tm.tm_mon;
+    std::string ref =
+	    static_cast<std::string>(col) +
+	    row;
+
+    return ref;
+}
