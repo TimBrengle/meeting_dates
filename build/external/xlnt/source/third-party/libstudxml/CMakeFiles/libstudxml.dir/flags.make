@@ -7,11 +7,11 @@ C_DEFINES = -DLIBSTUDXML_STATIC_LIB=1
 
 C_INCLUDES = -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/third-party/libstudxml.build/../libstudxml
 
-C_FLAGS = -O2 -g -DNDEBUG -fPIC
+C_FLAGS = -fPIC
 
 CXX_DEFINES = -DLIBSTUDXML_STATIC_LIB=1
 
 CXX_INCLUDES = -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/third-party/libstudxml.build/../libstudxml
 
-CXX_FLAGS = -O2 -g -DNDEBUG -std=gnu++11 -fPIC
+CXX_FLAGS = -std=gnu++11 -fPIC
 

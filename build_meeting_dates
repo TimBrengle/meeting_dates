@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 # build_meeting_dates.sh
 # Configures and builds meeting_dates with
 # optional source deps

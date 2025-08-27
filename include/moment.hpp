@@ -6,6 +6,8 @@
 #include <xlnt/xlnt.hpp>
 #include "excel_utilities.hpp"
 
+using namespace ExcelUtilities;
+
 namespace mtgs
 {
 
@@ -14,26 +16,46 @@ const std::string DateFmt == "%m/%d/%Y %H:%M";
 class Moment
 {
 public:
-    std::time_t point;
-    std::tm parsed;
-    std::string date_str;
-    std::string calref;
+    std::time_t point{0};
+    std::tm parsed{0};
+    std::string date_str{""};
+    std::string calref{""};
+    excel_serial serial{0};
 
     Moment()
     : point(0)
     {}
 
-    explicit Moment(std::time_t t)
-    : point(t)
-    {}
-
-    explicit Moment(const std::string &str)
+    explicit Moment(const std::time_t& p)
+    : point(p)
     {
-        struct tm tm{};
-        // Format of time in Calendar cell
-        if (strptime(str.c_str(), DateFmt, &tm))
+	localtime_r(t, parsed);
+	date_str = to_string(parsed);
+	calref = mkref(parsed);
+	serial = mkserial(point);
+    }
+
+    explicit Moment(const std::tm& t)
+    : parsed(t)
+    {
+	point = mktime(&parsed);
+	date_str = to_string(&parsed);
+	calref = mkref(&parsed);
+	serial = mkserial(point);
+    }
+
+    explicit Moment(const std::string& str)
+    {
+        // Format time from Calendar cell
+        if (strptime(
+		str.c_str(),
+		DateFmt,
+		&parsed))
         {
-            point = mktime(&tm);
+            point = mktime(&parsed);
+	    date_str = to_string(&parsed);
+	    calref = mkref(&parsed);
+	    excel = mkserial(point);
         }
         else
         {
@@ -43,7 +65,7 @@ public:
         }
     }
 
-    explicit Moment(double excel_serial)
+    explicit Moment(const excel_serial& s)
     {
         // Excel's serial date handling
 	// (1900-based, includes leap year bug)
@@ -51,11 +73,10 @@ public:
 	// 1899-12-31 UTC
         const time_t excel_epoch = -2209161600;
         point = excel_epoch
-	    + static_cast<time_t>(
-		excel_serial * 86400);
+	    + static_cast<time_t>(serial * 86400);
     }
 
-    time_t value() const
+    std::time_t value() const
     {
 	 return point;
     }
@@ -63,9 +84,11 @@ public:
     std::string to_string() const
     {
         char buf[32];
-        struct tm tm{};
-        localtime_r(&point, &tm);
-        strftime(buf, sizeof(buf), DateFmt, &tm);
+        localtime_r(&point, &parsed);
+        strftime(buf,
+		 sizeof(buf),
+		 DateFmt,
+		 &parsed);
         return buf;
     }
 
@@ -98,9 +121,6 @@ public:
                 throw std::runtime_error("Unsupported cell type for Moment");
         }
     }
-
-private:
-    time_t point;
 };
 
 static const std::string month_abbr[] =
@@ -111,10 +131,9 @@ static const std::string month_abbr[] =
 };
 
 // Map date -> calref
-inline std::string to_calref(time_t t)
+inline std::string to_calref(const std::time_t& t)
 {
     // Convert to calendar date
-    struct tm tm{};
     localtime_r(&t, &tm);
 
     // Map day-of-month to Excel row reference

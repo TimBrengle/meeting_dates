@@ -4,6 +4,8 @@
 
 namespace ExcelUtilities
 {
+    using excel_serial = double;
+
     std::string read_cell(const std::string& filename,
                           const std::string& sheet,
                           const std::string& cell);

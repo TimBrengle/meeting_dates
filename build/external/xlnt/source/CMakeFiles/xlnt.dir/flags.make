@@ -7,13 +7,13 @@ C_DEFINES = -DXLNT_SHARED=1 -Dxlnt_EXPORTS
 
 C_INCLUDES = -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../include -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../source -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../source/../third-party/libstudxml -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../source/../third-party/miniz -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../source/../third-party/utfcpp
 
-C_FLAGS = -O2 -g -DNDEBUG -fPIC
+C_FLAGS = -fPIC
 
 CXX_DEFINES = -DXLNT_SHARED=1 -Dxlnt_EXPORTS
 
 CXX_INCLUDES = -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../include -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../source -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../source/../third-party/libstudxml -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../source/../third-party/miniz -I/data/data/com.termux/files/home/projects/meeting_dates/external/xlnt/source/../source/../third-party/utfcpp
 
-CXX_FLAGS =  -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-padded -Wno-documentation-unknown-command -Wno-unknown-pragmas -Wno-unknown-warning-option -Wno-newline-eof -Wno-covered-switch-default -Wno-exit-time-destructors -Wno-missing-braces -O2 -g -DNDEBUG -std=gnu++14 -fPIC
+CXX_FLAGS =  -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-padded -Wno-documentation-unknown-command -Wno-unknown-pragmas -Wno-unknown-warning-option -Wno-newline-eof -Wno-covered-switch-default -Wno-exit-time-destructors -Wno-missing-braces -std=gnu++14 -fPIC
 
 # Custom flags: external/xlnt/source/CMakeFiles/xlnt.dir/detail/serialization/zstream.cpp.o_FLAGS = -Wno-undef -Wno-shorten-64-to-32
 
