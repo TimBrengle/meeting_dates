@@ -1,8 +1,18 @@
-meeting_dates/
-├── build/                # CMake build output directory (ignored by git)
-├── external/             # External libraries like xlnt go here
-│   └── xlnt/             # xlnt source code cloned here
-├── CMakeLists.txt        # Your main CMake project file
-├── main.cpp              # Your app source code
-└── README.md             # Optional: project info
-
+meeting_dates
+├── CMakeLists.txt
+├── build_meeting_dates
+├── external
+│   ├── CMakeCache.txt
+│   ├── CMakeFiles
+│   ├── minizip
+│   ├── xlnt
+│   └── zlib
+├── include
+│   ├── excel_utilities.hpp
+│   ├── moment.hpp
+│   └── original_excel_utils.hpp
+├── src
+│   ├── excel_utilities.cpp
+│   ├── main.cpp
+│   └── moment.cpp
+└── test.xlsx

@@ -1,0 +1,14 @@
+# Build outputs
+build/
+built/
+
+# External dependencies
+external/
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+

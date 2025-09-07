@@ -1,0 +1,40 @@
+#!/bin/bash
+echo "=== Patching xlnt CMake files safely ==="
+
+# --- Patch xlnt root CMakeLists.txt ---
+fix_root_cmake() {
+    local cmake_file="external/xlnt-src/CMakeLists.txt"
+    if [ -f "$cmake_file" ]; then
+        if ! grep -q "CMAKE_POSITION_INDEPENDENT_CODE" "$cmake_file"; then
+            echo "Patching $cmake_file ..."
+            sed -i 's/project *(xlnt .*)/project(xlnt)\n\n# Force PIC\nset(CMAKE_POSITION_INDEPENDENT_CODE ON)/' "$cmake_file"
+        else
+            echo "Already patched: $cmake_file"
+        fi
+    else
+        echo "CMake file not found: $cmake_file"
+    fi
+}
+
+# --- Patch libstudxml CMakeLists.txt ---
+fix_libstudxml_cmake() {
+    local cmake_file="external/xlnt-src/third-party/libstudxml/CMakeLists.txt"
+    if [ -f "$cmake_file" ]; then
+        if ! grep -q "HEADER_FILE_ONLY" "$cmake_file"; then
+            echo "Patching $cmake_file ..."
+            sed -i '/add_library *(studxml/a \
+# Ignore version text file\nset_source_files_properties(version PROPERTIES HEADER_FILE_ONLY TRUE)' "$cmake_file"
+        else
+            echo "Already patched: $cmake_file"
+        fi
+    else
+        echo "CMake file not found: $cmake_file"
+    fi
+}
+
+# Run both patches
+fix_root_cmake
+fix_libstudxml_cmake
+
+echo "=== Done patching ==="
+

@@ -1,149 +1,95 @@
+#if 1
 #pragma once
-
-#include <string>
 #include <ctime>
-#include <stdexcept>
-#include <xlnt/xlnt.hpp>
-#include "excel_utilities.hpp"
-
-using namespace ExcelUtilities;
-
-namespace mtgs
-{
-
-const std::string DateFmt == "%m/%d/%Y %H:%M";
+#include <string>
 
 class Moment
 {
 public:
-    std::time_t point{0};
-    std::tm parsed{0};
-    std::string date_str{""};
-    std::string calref{""};
-    excel_serial serial{0};
+    // Construct a Moment representing "now"
+    Moment();
 
+    // Construct from a specific time_t value
+    explicit Moment(std::time_t t);
+
+    // Return formatted string (e.g., "%Y-%m-%d %H:%M:%S")
+    std::string to_string(const char* format = "%Y-%m-%d %H:%M:%S") const;
+
+    // Return number of full days since a given time_t
+    static int days_since(std::time_t past);
+
+    // Parse from string into Moment (throws on failure)
+    static Moment parse(const std::string& str, const char* format = "%Y-%m-%d %H:%M:%S");
+
+    // Access internal tm struct (read-only)
+    const std::tm& get_tm() const;
+
+    // Convert to raw time_t
+    std::time_t to_time_t() const;
+
+private:
+    std::tm timeInfo{};
+};
+#else
+#pragma once
+
+#include <ctime>
+#include <string>
+#include <sstream>
+#include <iomanip>
+
+class Moment
+{
+public:
     Moment()
-    : point(0)
-    {}
-
-    explicit Moment(const std::time_t& p)
-    : point(p)
     {
-	localtime_r(t, parsed);
-	date_str = to_string(parsed);
-	calref = mkref(parsed);
-	serial = mkserial(point);
+        std::time_t now = std::time(nullptr);
+        localtime_r(&now, &timeInfo);
     }
 
-    explicit Moment(const std::tm& t)
-    : parsed(t)
+    explicit Moment(std::time_t t)
     {
-	point = mktime(&parsed);
-	date_str = to_string(&parsed);
-	calref = mkref(&parsed);
-	serial = mkserial(point);
+        localtime_r(&t, &timeInfo);
     }
 
-    explicit Moment(const std::string& str)
+    // Return formatted date/time as string
+    std::string to_string(const char* format = "%Y-%m-%d %H:%M:%S") const
     {
-        // Format time from Calendar cell
-        if (strptime(
-		str.c_str(),
-		DateFmt,
-		&parsed))
-        {
-            point = mktime(&parsed);
-	    date_str = to_string(&parsed);
-	    calref = mkref(&parsed);
-	    excel = mkserial(point);
-        }
-        else
-        {
-            throw std::runtime_error(
-		"Unsupported date string format: "
-		+ str);
-        }
+        char buffer[64];
+        std::strftime(buffer, sizeof(buffer), format, &timeInfo);
+        return std::string(buffer);
     }
 
-    explicit Moment(const excel_serial& s)
+    // Return days since given timestamp
+    static int days_since(std::time_t past)
     {
-        // Excel's serial date handling
-	// (1900-based, includes leap year bug)
-	
-	// 1899-12-31 UTC
-        const time_t excel_epoch = -2209161600;
-        point = excel_epoch
-	    + static_cast<time_t>(serial * 86400);
+        std::time_t now = std::time(nullptr);
+        return static_cast<int>((now - past) / (60 * 60 * 24));
     }
 
-    std::time_t value() const
+    // Parse a string into a Moment using given format
+    static Moment parse(const std::string& str, const char* format = "%Y-%m-%d %H:%M:%S")
     {
-	 return point;
+        std::tm parsed{};  // not const — must be mutable
+        std::istringstream ss(str);
+        ss >> std::get_time(&parsed, format);
+        std::time_t point = std::mktime(&parsed);
+
+        return Moment(point);
     }
 
-    std::string to_string() const
+    // Access raw tm
+    const std::tm& get_tm() const
     {
-        char buf[32];
-        localtime_r(&point, &parsed);
-        strftime(buf,
-		 sizeof(buf),
-		 DateFmt,
-		 &parsed);
-        return buf;
+        return timeInfo;
     }
 
-    // --- static helpers ---
-
-    static Moment from_cell(
-		const xlnt::cell &cell)
+    std::time_t to_time_t() const
     {
-        switch (cell.data_type())
-	{
-	    case xlnt::cell_type::date:
-            	auto dt =
-		    cell.value<xlnt::datetime>();
-            	std::tm tm{};
-            	tm.tm_year = dt.year - 1900;
-            	tm.tm_mon = dt.month - 1;
-            	tm.tm_mday = dt.day;
-            	tm.tm_hour = dt.hour;
-            	tm.tm_min = dt.minute;
-            	tm.tm_sec = dt.second;
-            	time_t t = mktime(&tm);
-            	return Moment(t);
-	    case xlnt::cell_type::number:
-                return Moment(
-		    cell.value<double>());
-	    case xlnt::cell_type::string:
-                return Moment(
-		    cell.value<std::string>());
-	    default:
-                throw std::runtime_error("Unsupported cell type for Moment");
-        }
+        return std::mktime(const_cast<std::tm*>(&timeInfo));
     }
+
+private:
+    std::tm timeInfo{};
 };
-
-static const std::string month_abbr[] =
-{
-    // Excel uses January = 0
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-};
-
-// Map date -> calref
-inline std::string to_calref(const std::time_t& t)
-{
-    // Convert to calendar date
-    localtime_r(&t, &tm);
-
-    // Map day-of-month to Excel row reference
-    std::string row = itos(tm.tm_mday) + 1;
-
-    // Map month to Excel column
-    char col = 'B' + tm.tm_mon;
-    std::string ref =
-	    static_cast<std::string>(col) +
-	    row;
-
-    return ref;
-}
+#endif

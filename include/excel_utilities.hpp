@@ -1,22 +1,26 @@
 #pragma once
 #include <string>
-#include "moment.hpp"
+#include <xlnt/xlnt.hpp>
 
-namespace ExcelUtilities
+// Read a cell from a workbook by sheet name and cell address
+inline std::string read_cell(xlnt::workbook &wb, const std::string &sheet, const std::string &cell)
 {
-    using excel_serial = double;
+    auto ws = wb.sheet_by_title(sheet);
+    return ws.cell(cell).to_string();
+}
 
-    std::string read_cell(const std::string& filename,
-                          const std::string& sheet,
-                          const std::string& cell);
+// Write a value to a cell
+inline void write_cell(xlnt::workbook &wb, const std::string &sheet,
+                       const std::string &cell, const std::string &value)
+{
+    auto ws = wb.sheet_by_title(sheet);
+    ws.cell(cell).value(value);
+}
 
-    void write_cell(const std::string& filename,
-                    const std::string& sheet,
-                    const std::string& cell,
-                    const std::string& value);
-
-    void update_meeting_date(const std::string& filename,
-                             const std::string& sheet,
-                             const std::string& cell,
-                             const Moment& when);
+// Insert value into a row/column position (0-based)
+inline void write_cell(xlnt::workbook &wb, const std::string &sheet,
+                       std::size_t row, std::size_t col, const std::string &value)
+{
+    auto ws = wb.sheet_by_title(sheet);
+    ws.cell(row + 1, col + 1).value(value); // xlnt uses 1-based indexing
 }
