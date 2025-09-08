@@ -12,3 +12,18 @@ cmake_install.cmake
 Makefile
 *.cmake
 
+# Temporary editor files
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
