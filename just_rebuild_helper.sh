@@ -1,24 +1,24 @@
 #!/bin/bash
-# just_rebuild_helper.sh
-# Rebuild only the meeting_dates target if needed
+# just_build_helper.sh
+# Cleans and builds meeting_dates, suppressing external/ warnings
 
-BUILD_DIR="build"
-TARGET="meeting_dates"
+set -e  # Exit immediately if a command fails
+set -o pipefail
 
-if [ ! -d "$BUILD_DIR" ]; then
-    echo "Error: Build directory '$BUILD_DIR' does not exist."
-    echo "Please run the full build script first."
-    exit 1
-fi
+BUILD_DIR="${PWD}/build"
 
-# Check if the target is already up-to-date
-UP_TO_DATE=$(cmake --build "$BUILD_DIR" --target "$TARGET" -- -n 2>&1)
+echo "=== Removing previous build directory ==="
+rm -rf "${BUILD_DIR}"
 
-if echo "$UP_TO_DATE" | grep -q "nothing to be done"; then
-    echo "Target '$TARGET' is already up-to-date. Skipping build."
-else
-    echo "=== Rebuilding $TARGET ==="
-    cmake --build "$BUILD_DIR" --target "$TARGET" -- -j$(nproc)
-    echo "=== Done ==="
-fi
+echo "=== Creating build directory ==="
+mkdir -p "${BUILD_DIR}"
+cd "${BUILD_DIR}"
+
+echo "=== Configuring project ==="
+cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
+
+echo "=== Building project ==="
+cmake --build . -- -j$(nproc)
+
+echo "=== Build finished ==="
 

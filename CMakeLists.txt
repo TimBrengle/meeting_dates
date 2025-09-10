@@ -25,6 +25,13 @@ set(XLNT_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(XLNT_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(XLNT_BUILD_PYTHON OFF CACHE BOOL "" FORCE)
 
+# --- Suppress all warnings for external/ ---
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:-w>")
+elseif(MSVC)
+    add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:/W0>")
+endif()
+
 # Include xlnt headers and sources
 add_subdirectory("${XLNT_DIR}" "${CMAKE_BINARY_DIR}/xlnt-build")
 
@@ -51,7 +58,12 @@ target_link_libraries(meeting_dates PRIVATE xlnt)
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
     target_compile_options(meeting_dates PRIVATE
         -Wall -Wextra -Wpedantic -Werror
-        -Wno-unsafe-buffer-usage
+        -Wno-switch-default
+        -Wunused-but-set-variable
+        -Wsuggest-destructor-override
+        -Wunsafe-buffer-usage
+        -Wunsafe-buffer-usage-in-libc-call
+        -Wsuggest-override
     )
 elseif(MSVC)
     target_compile_options(meeting_dates PRIVATE /W4 /WX)
